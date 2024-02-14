@@ -16,6 +16,8 @@ public struct SegmentModel {
 
     /// Image name located in asset catalog
     var imageName: String?
+    
+    var selectedImageName: String?
 
     /// Bundle that will be used to get image by name
     var bundle: Bundle?
@@ -34,9 +36,10 @@ public struct SegmentModel {
     ///   - title: Segment item title
     ///   - imageName: Image name located in asset catalog
     ///   - bundle: Bundle that will be used to get image by name
-    public init(title: String? = nil, imageName: String?, bundle: Bundle? = nil) {
+    public init(title: String? = nil, imageName: String?, selectedImageName: String? = nil, bundle: Bundle? = nil) {
         self.title = title
         self.imageName = imageName
+        self.selectedImageName = selectedImageName
         self.bundle = bundle
     }
 

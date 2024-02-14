@@ -1,5 +1,5 @@
 PODS:
-  - RESegmentedControl (0.5.0)
+  - RESegmentedControl (0.5.4)
 
 DEPENDENCIES:
   - RESegmentedControl (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RESegmentedControl: d1aca2827cf49e8a461cd97d8c2a98a58cafe029
+  RESegmentedControl: 393063d6b6ffceb6aea85c00772977f3da2d5c53
 
 PODFILE CHECKSUM: cf23995294595fd77bf3b84435085fdd8e637df7
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.14.2

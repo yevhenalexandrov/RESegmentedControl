@@ -1,6 +1,6 @@
 {
   "name": "RESegmentedControl",
-  "version": "0.5.0",
+  "version": "0.5.4",
   "summary": "A Customizable Segmented Control.",
   "description": "Customizable segmented control with style presets. It can display both texts and images, vertically or horizontally. Able to download and cache images. Adaptive Layout-Driven UI. Natural and smooth animation between segments switch.",
   "homepage": "https://github.com/sh-khashimov/RESegmentedControl",
@@ -19,7 +19,7 @@
   },
   "source": {
     "git": "https://github.com/sh-khashimov/RESegmentedControl.git",
-    "tag": "0.5.0"
+    "tag": "0.5.4"
   },
   "platforms": {
     "ios": "9.0"

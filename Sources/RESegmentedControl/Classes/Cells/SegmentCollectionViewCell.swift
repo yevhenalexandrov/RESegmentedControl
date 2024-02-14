@@ -124,12 +124,26 @@ internal class SegmentCollectionViewCell: UICollectionViewCell {
             self.textLabel.textColor = style.selectedTextColor
             self.textLabel.font = style.selectedFont ?? style.font
             self.textLabel.textAlignment = style.selectedTextAlignment ?? style.textAlignment ?? .natural
-            self.imageView?.tintColor = style.selectedTintColor
-        } else {
+            
+            if let selectedImageName = item?.selectedImageName, (item?.imageName != nil) {
+                self.imageView.image = UIImage(named: selectedImageName)
+            }
+            else {
+                self.imageView?.tintColor = style.selectedTintColor
+            }
+        } 
+        else
+        {
             self.textLabel.textColor = style.textColor
             self.textLabel.font = style.font
             self.textLabel.textAlignment = style.textAlignment ?? .natural
-            self.imageView?.tintColor = style.tintColor
+            
+            if let imageName = item?.imageName, (item?.selectedImageName != nil) {
+                self.imageView.image = UIImage(named: imageName)
+            }
+            else {
+                self.imageView?.tintColor = style.tintColor
+            }
         }
     }
 

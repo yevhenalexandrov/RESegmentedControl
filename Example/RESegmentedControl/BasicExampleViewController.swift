@@ -42,16 +42,23 @@ class BasicExampleViewController: UIViewController {
 
     @IBOutlet weak var verticalTextAndImageSegment: RESegmentedControl! {
         didSet {
-
-            var segmentItems: [SegmentModel] {
-                return items.map({ SegmentModel(title: $0, imageName: $0) })
-            }
-
-            var preset = MaterialPreset(backgroundColor: .orange, tintColor: .black)
-
+            
+            let segmentItems: [SegmentModel]  = [
+                SegmentModel(title: "Safari", imageName: "safari-unselected", selectedImageName: "safari-selected"),
+                SegmentModel(title: "Safari1", imageName: "safari-unselected", selectedImageName: "safari-selected"),
+                SegmentModel(title: "Safari2", imageName: "safari-unselected", selectedImageName: "safari-selected")
+            ]
+            
+            var preset = MaterialPreset(backgroundColor: .white, tintColor: .black)
+            preset.segmentSelectedItemStyle = SegmentSelectedItemStyle(backgroundColor: .clear)
             preset.segmentItemAxis = .vertical
-            preset.spaceBetweenImageAndLabel = 0
-
+            preset.textFont = .systemFont(ofSize: 16)
+            preset.textColor = .lightGray
+            preset.selectedTextColor = .black
+            preset.spaceBetweenImageAndLabel = 5
+            preset.segmentSpacing = 0
+            preset.imageHeight = 70
+            
             verticalTextAndImageSegment.configure(segmentItems: segmentItems, preset: preset)
         }
     }
