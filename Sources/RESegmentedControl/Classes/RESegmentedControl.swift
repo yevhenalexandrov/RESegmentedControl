@@ -70,6 +70,8 @@ open class RESegmentedControl: UIControl {
 
         return collectionView
     }()
+    
+    public var onSelectionChange: ((Int) -> Void)?
 
     /// Whether or not collection views should update its frame
     var canCollectionViewUpdateLayout: Bool = true
@@ -131,6 +133,8 @@ open class RESegmentedControl: UIControl {
                     self.sendActions(for: .valueChanged)
                 }
             }
+            
+            onSelectionChange?(selectedSegmentIndex)
         }
     }
 
@@ -319,6 +323,11 @@ open class RESegmentedControl: UIControl {
             selectedBackgroundView.frame = CGRect(origin: selectedItemPosition, size: backgroundSize)
         }
     }
+    
+    public func scrollToIndex(_ index: Int) {
+        selectedSegmentIndex = index
+        collectionView.selectItem(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+    }
 
 }
 
@@ -373,6 +382,7 @@ extension RESegmentedControl: UICollectionViewDataSource {
 extension RESegmentedControl: UICollectionViewDelegate {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("didSelectItemAt index: \(indexPath)")
         selectedSegmentIndex = indexPath.row
     }
 

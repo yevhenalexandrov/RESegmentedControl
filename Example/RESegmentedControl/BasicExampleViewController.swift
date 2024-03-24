@@ -60,6 +60,20 @@ class BasicExampleViewController: UIViewController {
             preset.imageHeight = 70
             
             verticalTextAndImageSegment.configure(segmentItems: segmentItems, preset: preset)
+            
+            verticalTextAndImageSegment.onSelectionChange = { index in
+                print("Did select item: \(index)")
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+                guard let `self` = self else { return }
+                self.verticalTextAndImageSegment.scrollToIndex(1)
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+                guard let `self` = self else { return }
+                self.verticalTextAndImageSegment.scrollToIndex(2)
+            }
         }
     }
 
