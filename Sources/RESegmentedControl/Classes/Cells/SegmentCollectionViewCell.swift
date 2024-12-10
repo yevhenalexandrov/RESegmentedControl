@@ -39,11 +39,16 @@ internal class SegmentCollectionViewCell: UICollectionViewCell {
                 guard imageUrl == url else { return }
                 self?.imageView.image = image.withRenderingMode(self?.style?.imageRenderMode ?? .automatic)
             }
-        } else if let imageName = item?.imageName {
+        } 
+        else if let imageName = item?.imageName {
             let bundle = item?.bundle ?? Bundle.main
             if let image = UIImage(named: imageName, in: bundle, compatibleWith: nil) {
                 imageView.image = image.withRenderingMode(style?.imageRenderMode ?? .automatic)
             }
+        }
+        
+        if isSelected, let selectedImage = item?.selectedImageName {
+            imageView.image = UIImage(named: selectedImage) ?? UIImage()
         }
     }
 

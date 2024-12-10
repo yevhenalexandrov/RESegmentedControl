@@ -62,7 +62,9 @@ class BasicExampleViewController: UIViewController {
             verticalTextAndImageSegment.configure(segmentItems: segmentItems, preset: preset)
             
             verticalTextAndImageSegment.onSelectionChange = { index in
+                #if DEBUG
                 print("Did select item: \(index)")
+                #endif
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in

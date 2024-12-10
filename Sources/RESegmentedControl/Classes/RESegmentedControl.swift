@@ -126,9 +126,13 @@ open class RESegmentedControl: UIControl {
                 canCollectionViewUpdateLayout = false
                 updateLayouts()
                 canCollectionViewUpdateLayout = true
+                
                 guard segmentItems.count != 0,
                     selectedSegmentIndex != -1,
-                    selectedSegmentIndex < segmentItems.count else { return }
+                    selectedSegmentIndex < segmentItems.count 
+                else {
+                    return
+                }
                 DispatchQueue.main.async {
                     self.sendActions(for: .valueChanged)
                 }
@@ -354,10 +358,11 @@ extension RESegmentedControl: UICollectionViewDataSource {
         as? SegmentCollectionViewCell
 
         cell?.configure(segmentItem, style: preset.segmentItemStyle, segmentContentWidthType: preset.segmentStyle.contentWidthType)
-
+        
         if selectedSegmentIndex >= 0,
-            selectedSegmentIndex < segmentItems.count,
-            indexPath.row == selectedSegmentIndex {
+           selectedSegmentIndex < segmentItems.count,
+           indexPath.row == selectedSegmentIndex
+        {
             cell?.isSelected = indexPath.row == selectedSegmentIndex
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
         }
